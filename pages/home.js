@@ -6,12 +6,14 @@ export default class home extends Component{
 static navigationOptions= ({navigation}) =>({
 		  title: 'Welcome',	
 	});  
-  
+
 	render(){
 		const { navigate } = this.props.navigation;
 		return(
 	  <View style={styles.container}>	
 	  <Text style={styles.pageName}>User Manager</Text>
+	  
+
 
 		<TouchableOpacity
 		onPress={() => navigate('Login')}

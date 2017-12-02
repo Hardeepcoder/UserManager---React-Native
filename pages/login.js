@@ -6,6 +6,8 @@ import {
   View,TouchableOpacity,TextInput,Button,Keyboard
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+
+
 export default class login extends Component {
 	static navigationOptions= ({navigation}) =>({
 		  title: 'Login',	
@@ -27,9 +29,26 @@ export default class login extends Component {
 	
 	login = () =>{
 		const {userEmail,userPassword} = this.state;
-		//here we will send our data to server with fetch
+		let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
+		if(userEmail==""){
+			//alert("Please enter Email address");
+		  this.setState({email:'Please enter Email address'})
+			
+		}
 		
-		fetch('http://hardeepcoder.com/react/login.php',{
+		else if(reg.test(userEmail) === false)
+		{
+		//alert("Email is Not Correct");
+		this.setState({email:'Email is Not Correct'})
+		return false;
+		  }
+
+		else if(userPassword==""){
+		this.setState({email:'Please enter password'})
+		}
+		else{
+		
+		fetch('https://hardeepwork.000webhostapp.com/react/login.php',{
 			method:'post',
 			header:{
 				'Accept': 'application/json',
@@ -55,6 +74,7 @@ export default class login extends Component {
 		 .catch((error)=>{
 		 console.error(error);
 		 });
+		}
 		
 		
 		Keyboard.dismiss();
@@ -63,6 +83,7 @@ export default class login extends Component {
   render() {
     return (
 	<View style={styles.container}>    
+	<Text style={{padding:10,margin:10,color:'red'}}>{this.state.email}</Text>
 	
 	<TextInput
 	placeholder="Enter Email"
@@ -74,7 +95,9 @@ export default class login extends Component {
 	placeholder="Enter Password"
 	style={{width:200, margin:10}}
 	onChangeText={userPassword => this.setState({userPassword})}
+	
 	/>
+	
 	
 	<TouchableOpacity
 	onPress={this.login}

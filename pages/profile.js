@@ -5,7 +5,7 @@ export default class home extends Component{
 static navigationOptions= ({navigation}) =>({
 		  title: 'Welcome',	
 	});  
-  
+	
 	render(){
 		const { navigate } = this.props.navigation;
 		return(
@@ -13,6 +13,7 @@ static navigationOptions= ({navigation}) =>({
 	  
 	   <Text style={styles.pageName}>profile</Text>
 	   
+
       </View>
 		);
 	}

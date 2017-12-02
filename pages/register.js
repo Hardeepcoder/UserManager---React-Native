@@ -5,7 +5,8 @@ import {
   Text,
   View,Button,TextInput,TouchableOpacity
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+
+
 export default class register extends Component {
 	   static navigationOptions= ({navigation}) =>({
 		  title: 'Register',	
@@ -35,7 +36,7 @@ export default class register extends Component {
 		const {userPassword} = this.state;
 		
 		
-		fetch('http://hardeepcoder.com/react/register.php', {
+		fetch('https://hardeepwork.000webhostapp.com/react/register.php', {
 			method: 'post',
 			header:{
 				'Accept': 'application/json',
@@ -61,7 +62,8 @@ export default class register extends Component {
   render() {
     return (
 	<View style={styles.container}>
-      
+      	
+	
 	  <TextInput
 	  placeholder="Enter Name"
 	  style={{width:250,margin:10, borderColor:"#333", 
