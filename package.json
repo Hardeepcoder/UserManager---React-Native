@@ -7,7 +7,7 @@
 		"test": "jest"
 	},
 	"dependencies": {
-		"react": "16.0.0-alpha.12",
+		"react": "16.5.0",
 		"react-native": "0.48.3"
 	},
 	"devDependencies": {
